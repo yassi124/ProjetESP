@@ -1,8 +1,8 @@
-'''
-Date        : 31/10/2018
-Description : FFT Library for micropython devices (nodeMCU,STM32F405xx,...)
-Autor       : Yassine OUAISSA
-'''
+#
+#Date        : 31/10/2018
+#Description : FFT Library for micropython devices (nodeMCU,STM32F405xx,...)
+#Autor       : Yassine OUAISSA
+#
 
 import math as m
 import socket as sock
