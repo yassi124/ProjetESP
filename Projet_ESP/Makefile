@@ -16,7 +16,7 @@ clear_flash:
 flash_microPython:
 	$(ESPTOOL) --baud $(BAUD) --port $(PORT) write_flash --flash_size=detect 0 $(MICRO_BIN)
 flash:
-	$(ESPTOOL) --baud $(BAUD) --port $(PORT) write_flash --		flash_size=detect 0 $(BIN)
+	$(ESPTOOL) --baud $(BAUD) --port $(PORT) write_flash --flash_size=detect 0 $(BIN)
 
 connect:
 	picocom $(PORT) -b $(BAUD)
