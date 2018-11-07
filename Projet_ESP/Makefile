@@ -1,8 +1,5 @@
-# MakeFile for flashing ESP 
-
-# Created by :
-#		Yassine OUAISSA 
-# Date : 	05/11/2018
+# Autor :Yassine OUAISSA 
+# Date  : 05/11/2018
 #
 
 PORT ?=/dev/ttyUSB0
