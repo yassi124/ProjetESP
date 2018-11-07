@@ -1,8 +1,12 @@
+
+# Autor : Yassine OUAISSA
+# Date  : 07 / 11 / 2018 
+# Description : receve & visulaze function 
+#
+
 import socket as sock
 import matplotlib.pyplot as plt
-import numpy as np 
 import matplotlib.animation as ani
-
 
 Data = []
 

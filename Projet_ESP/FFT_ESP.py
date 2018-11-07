@@ -1,15 +1,13 @@
 '''
 Date        : 31/10/2018
-Description : FFT Library for micropython devices 
-Created by  : Yassine OUAISSA
+Description : FFT Library for micropython devices (nodeMCU,STM32F405xx,...)
+Autor       : Yassine OUAISSA
 '''
 
 import math as m
-import numpy as np
 import socket as sock
-import time
 
-FEN_TYPES = ["HANN","HAMM","RECTONGLE","TRIANGLE","FLAT_TOP","WELCH"]
+FEN_TYPES = ["HANN","HAMM","RECTONGLE","TRIANGLE","FLAT_TOP","WELCH"] 
 
 def swap(a,b):
     a,b = b,a
@@ -98,44 +96,14 @@ def compute(Vreal,Vimag):
     return Vreal, Vimag
 
 def FFT_Pack(rDATA):
+    
     iDATA = []
     for i in range(len(rDATA)):
         iDATA.append(0.0)
     compute(rDATA,iDATA)
     complexToMagnitude(rDATA,iDATA)
-    for x in FEN_TYPES :
-        Windowing(rDATA,x)
+    for fen in FEN_TYPES:
+        Windowing(rDATA,fen)
 
-def Send_FFT_Values(rData):
-    
-    
-    
-    dataToSend =''.join("{};".format(e) for e in rData)
-    socket.sendall("{}END".format(dataToSend))
-    
-    print("[DEBUG] Closing socket")
-    
-    
-def test_fonctions():
-    
-    N = 2048
-    T = 1.0/50.0
-    Vr = []
-    Vi = np.zeros(N)
-    t= np.linspace(0.0,N*T,N)
-    f = 40000000
-    
-    xf = np.linspace(0.0,1.0/(2.0*T),N)
-    Vr = np.sin(2*np.pi*f*t)+np.sin(5*np.pi*f*t+20)+np.sin(7*np.pi*f*t+40)#+np.sin(11*np.pi*f*t+90)+np.sin(17*np.pi*f*t+50)\
-        #+np.sin(19*np.pi*f*t)+np.sin(29*np.pi*f*t+50)
-    
-    FFT_Pack(Vr)
-    Send_FFT_Values(Vr)
-    print(max(Vr))
-    #print("-----------------------------------------------------------")
-    #print(Vr)
 
-socket = sock.socket(sock.AF_INET,sock.SOCK_STREAM)
-socket.connect(('localhost',1555))   
-test_fonctions()
-socket.close()
+    
