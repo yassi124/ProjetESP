@@ -36,7 +36,6 @@ class FFT {
 public:
 	/* Constructor */
 	FFT(void);
-	FFT(double *vReal, double *vImag, uint16_t samples, double samplingFrequency);
 	/* Destructor */
 	~FFT(void);
 	/* Functions */
@@ -46,23 +45,20 @@ public:
 
 private:
 	/* Variables */
-	uint16_t _samples;
-	double _samplingFrequency;
-	double *_vReal;
-	double *_vImag;
-	uint8_t _power;
+	//uint16_t _samples;
+	//double _samplingFrequency;
+	//double *_vReal;
+	//double *_vImag;
+	//uint8_t _power;
 	/* Functions */
 	void Swap(double *x, double *y);
-	void Compute(double *vReal, double *vImag, uint16_t samples, uint8_t dir);
 	void Compute(double *vReal, double *vImag, uint16_t samples, uint8_t power, uint8_t dir);
+	void Compute(double *vReal, double *vImag, uint16_t samples, uint8_t dir);
 	uint8_t Exponent(uint16_t value);
 	void ComplexToMagnitude(double *vReal, double *vImag, uint16_t samples);
 	void MajorPeak(double *vD, uint16_t samples, double samplingFrequency,double* fqPeak, double* aPeak);
 	void Windowing(double *vData, uint16_t samples, uint8_t windowType, uint8_t dir);
 	void ComplexToMagnitude();
-	void Compute(uint8_t dir);
-	void MajorPeak(double* fqPeak, double* aPeak);
-	void Windowing(uint8_t windowType, uint8_t dir);
 };
 
 #endif

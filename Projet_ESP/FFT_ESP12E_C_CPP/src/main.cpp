@@ -28,7 +28,7 @@ uint32_t indexAquire =0;
 bool isFull =false; // Pour debug mode
 
 void mesureFFT();
-void sendDataSocket(double* Vreal,double* Vimag,uint16_t samlples );
+//void sendDataSocket(double* Vreal,double* Vimag,uint16_t samlples );
 void AquireData();
 
 
@@ -69,7 +69,7 @@ void AquireData(){
 
       isFull =true; // Debug mode (lancer mesure une seule fois )
       Serial.println(F("[DEBUG] Fin mesure"));
-      sendDataSocket(vReal, vImag, samples);
+      //sendDataSocket(vReal, vImag, samples);
     }else {
       //Serial.println(F("[DEBUG] nothing "));
 
@@ -100,7 +100,7 @@ void mesureFFT(){
   Serial.println(amplitude);
 }
 
-
+/*
 void sendDataSocket(double* Vreal,double* Vimag,uint16_t samlples ){
   WiFiClient client;
   if(!client.connect("172.20.10.3", 1555)){
@@ -122,4 +122,4 @@ void sendDataSocket(double* Vreal,double* Vimag,uint16_t samlples ){
   client.println("END");
   client.stop();
 
-}
+}*/

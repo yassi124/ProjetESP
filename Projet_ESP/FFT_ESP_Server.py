@@ -31,7 +31,7 @@ def receve_DATA():
     client.close()
     socket.close()
     return data
-
+plt.style.use('dark_background')
 fig=plt.figure()
 ax=fig.add_subplot(1,1,1)
 
@@ -44,7 +44,12 @@ def update_plot(yData):
         print(e)
     finally:
         ax.clear()
-        ax.plot(yData,'r')
+        ax.plot(yData,'w',linestyle='dotted',marker='o',markerfacecolor='red',markersize=7)
+        m  = max(yData)
+        idx = yData.index(m)
+        plt.annotate('Freq Max = {}'.format(m),xy=(idx,m)
+                     ,xytext=(idx+20,m)
+                     ,arrowprops = dict(facecolor="blue",shrink=0.05))
         
 plot_ani = ani.FuncAnimation(fig,update_plot,fargs=(Data),interval = 1)
 plt.show()
