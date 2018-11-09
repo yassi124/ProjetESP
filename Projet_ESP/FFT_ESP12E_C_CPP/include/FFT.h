@@ -45,11 +45,6 @@ public:
 
 private:
 	/* Variables */
-	//uint16_t _samples;
-	//double _samplingFrequency;
-	//double *_vReal;
-	//double *_vImag;
-	//uint8_t _power;
 	/* Functions */
 	void Swap(double *x, double *y);
 	void Compute(double *vReal, double *vImag, uint16_t samples, uint8_t power, uint8_t dir);
