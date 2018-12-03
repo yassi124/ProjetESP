@@ -40,16 +40,16 @@ def update_plot(yData):
     try:
         yData = receve_DATA()
         strToFloat(yData)
-    except Exception as e :
-        print(e)
-    finally:
-        ax.clear()
+ 	ax.clear()
         ax.plot(yData,'w',linestyle='dotted',marker='o',markerfacecolor='red',markersize=7)
         m  = max(yData)
         idx = yData.index(m)
         plt.annotate('Freq Max = {}'.format(m),xy=(idx,m)
                      ,xytext=(idx+20,m)
                      ,arrowprops = dict(facecolor="blue",shrink=0.05))
+    except Exception as e :
+        print(e)
+       
         
 plot_ani = ani.FuncAnimation(fig,update_plot,fargs=(Data),interval = 1)
 plt.show()

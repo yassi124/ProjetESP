@@ -96,14 +96,12 @@ def compute(Vreal,Vimag):
     return Vreal, Vimag
 
 def FFT_Pack(rDATA):
-    
-    iDATA = []
-    for i in range(len(rDATA)):
-        iDATA.append(0.0)
+    iDATA = [0.0]*len(rDATA)
     compute(rDATA,iDATA)
     complexToMagnitude(rDATA,iDATA)
+    #Windowing(rDATA,"HANN")
     for fen in FEN_TYPES:
-        Windowing(rDATA,fen)
+	Windowing(rDATA,fen)
 
 
     
