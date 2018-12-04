@@ -2,6 +2,19 @@
 # Date  : 05/11/2018
 #
 
+####################################################################################################################################
+#Warning : Befor execute this Makefile, you will install those depencies : 							   #
+#********	Esptool (tool for flashing the ESP-Micro-Controller ), picocom(interfacing with the UART bus)			   #
+#																   #
+#      *** Installation Linux ***												   #
+#    Python Pip : sudo apt-get install python-setuptools python-pip / python3-XXXX(for python3)					   #
+#    ESPTOOL : with pip : sudo pip install esptool / pip3 install esptool (python3-pip)						   #
+#    PICOCOM : sudo apt-get install picocom
+# 
+#	Installation with one command : 
+#   					sudo apt-get install python-pip python-setuptools picocom; sudo pip install esptool        #
+####################################################################################################################################
+
 PORT ?=/dev/ttyUSB0
 BAUD ?=115200
 ESPTOOL ?=esptool.py
